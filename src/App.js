@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, NavLink, HashRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import CadastroCliente from './components/CadastroCliente';
+import ConsultaCliente from './components/ConsultaCliente';
+
+class App extends React.Component {
+
+
+  render() {
+    return (
+      <HashRouter>
+        <div className="container mt-2">
+          <h3>Projeto React COTI Informática</h3>
+          <ul>
+            <li><NavLink to="/cadastro-cliente">Cadastrar Clientes</NavLink></li>
+            <li><NavLink to="/consulta-cliente">Consultar Clientes</NavLink></li>
+          </ul>
+          <hr />
+
+          <Route path="/cadastro-cliente" component={CadastroCliente} />
+          <Route path="/consulta-cliente" component={ConsultaCliente} />
+
+        </div>
+      </HashRouter>
+    )
+  }
 }
 
 export default App;
